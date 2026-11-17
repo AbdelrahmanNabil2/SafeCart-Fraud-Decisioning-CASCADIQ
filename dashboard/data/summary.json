@@ -1,0 +1,140 @@
+{
+  "base_rate": 0.0344,
+  "n_historical": 35000,
+  "n_duplicates_dropped": 70,
+  "total_fraud": 1204,
+  "caught_by_review": 885,
+  "missed_by_review": 319,
+  "review_catch_rate": 0.7350498338870431,
+  "eda": {
+    "Device_Known_Flag": {
+      "0": 0.07993823494476779,
+      "1": 0.019976675068658065
+    },
+    "Password_Reset_48H": {
+      "0": 0.029764898164445563,
+      "1": 0.08071608040201005
+    },
+    "Shipping_Address_New_Flag": {
+      "0": 0.02821522309711286,
+      "1": 0.07610619469026549
+    }
+  },
+  "missingness": {
+    "IP_Distance_From_Usual_KM": {
+      "pct_missing": 1.4000000000000001,
+      "fraud_rate_when_missing": 0.04081632653061224,
+      "fraud_rate_when_present": 0.03430889597218197
+    },
+    "Amount_vs_Customer_Avg": {
+      "pct_missing": 1.0,
+      "fraud_rate_when_missing": 0.04857142857142857,
+      "fraud_rate_when_present": 0.034256854256854256
+    }
+  },
+  "model_results": {
+    "Logistic Regression": 0.808,
+    "Linear SVM (calibrated)": 0.808,
+    "Random Forest": 0.795,
+    "Distance-to-centroid baseline": 0.794,
+    "HistGradientBoosting": 0.777,
+    "Gaussian Naive Bayes": 0.772,
+    "Shallow Decision Tree (d=4)": 0.737,
+    "k-Nearest Neighbors (k=50)": 0.734
+  },
+  "do_nothing_cost": 715299.0794357336,
+  "naive2_cost": 266059.33047798707,
+  "lp_optimal_cost": 229750.69486343887,
+  "action_counts": {
+    "Step-up Authentication": 1591,
+    "Manual Review": 508,
+    "Temporary Hold": 349,
+    "Approve": 52
+  },
+  "mc_mean_pct": 67.87239202239003,
+  "mc_p5_pct": 62.33685341292126,
+  "mc_p95_pct": 73.42807395302097,
+  "floor_pct": 57.60623998130793,
+  "fairness": {
+    "Customer_Gender": [
+      {
+        "group": "Female",
+        "n": 17226,
+        "fraud_events": 578,
+        "pct_in_hold_tier": 14.0,
+        "fraud_recall_in_hold_tier_pct": 51.56
+      },
+      {
+        "group": "Male",
+        "n": 17774,
+        "fraud_events": 626,
+        "pct_in_hold_tier": 14.0,
+        "fraud_recall_in_hold_tier_pct": 56.23
+      }
+    ],
+    "Nationality_Group": [
+      {
+        "group": "Egyptian",
+        "n": 28354,
+        "fraud_events": 987,
+        "pct_in_hold_tier": 14.02,
+        "fraud_recall_in_hold_tier_pct": 51.98
+      },
+      {
+        "group": "International",
+        "n": 1715,
+        "fraud_events": 66,
+        "pct_in_hold_tier": 13.88,
+        "fraud_recall_in_hold_tier_pct": 62.12
+      },
+      {
+        "group": "Regional",
+        "n": 4931,
+        "fraud_events": 151,
+        "pct_in_hold_tier": 13.95,
+        "fraud_recall_in_hold_tier_pct": 63.58
+      }
+    ]
+  },
+  "current_file_stats": {
+    "mean": 0.03576495397178668,
+    "median": 0.016624126915390218,
+    "max": 0.6318700303270667
+  },
+  "process_precision": 1.0,
+  "process_recall": 0.7350498338870431,
+  "champion_cv_auc": 0.808,
+  "champion_cv_ap": 0.183,
+  "champion_cv_ap_vs_base": 5.319767441860465,
+  "champion_ops": {
+    "f1": {
+      "label": "F1-optimal (last time fold)",
+      "threshold": 0.1097,
+      "precision": 0.2219,
+      "recall": 0.3915,
+      "f1": 0.2833
+    },
+    "hold_cap": {
+      "label": "Hold capacity (top 14%)",
+      "rate": 0.14,
+      "precision": 0.1554,
+      "recall": 0.5991
+    },
+    "hold_review": {
+      "label": "Hold + Review capacity (top 86%)",
+      "rate": 0.86,
+      "precision": 0.0419,
+      "recall": 0.9906
+    }
+  },
+  "model_prauc": {
+    "Logistic Regression": 0.183,
+    "Linear SVM (calibrated)": 0.179,
+    "Random Forest": 0.174,
+    "HistGradientBoosting": 0.157,
+    "Distance-to-centroid baseline": 0.136,
+    "k-Nearest Neighbors (k=50)": 0.12,
+    "Shallow Decision Tree (d=4)": 0.112,
+    "Gaussian Naive Bayes": 0.101
+  }
+}
